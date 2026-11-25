@@ -1,0 +1,14 @@
+# Line length held to 100. The code in this repository is wrapped to this width by
+# hand, so the linter enforces a limit the author actually maintains rather than an
+# aspirational one that drifts.
+line-length = 100
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "C4", "SIM"]
+# B008: the CLI deliberately builds default Path objects in argparse defaults.
+ignore = []
+
+[lint.per-file-ignores]
+# Tests assert on literals and build fixtures inline; a couple of rules fight that.
+"tests/*" = ["E501"]

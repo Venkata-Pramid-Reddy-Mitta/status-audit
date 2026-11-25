@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Test and coverage
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+coverage.json
+htmlcov/
+reports/
+
+# Generated report output (the tool rebuilds these with `make verify`)
+docs/report.html
+docs/report.json
+
+# Local virtualenvs
+.venv/
+venv/
+
+# OS noise
+.DS_Store
+
+# Vendored evidence-only library (fetch with: npm install mermaid, then copy dist/mermaid.min.js here)
+tools/vendor/

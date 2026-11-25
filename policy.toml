@@ -1,0 +1,59 @@
+# status-audit policy
+# ---------------------
+# This file is the whole argument of the tool: the RAG colour on a status report is a
+# human judgement, and this file is the independent, written-down judgement the tool
+# uses to recompute that colour from objective signals. Every threshold below is a
+# decision a reviewer can disagree with. That is the point. The audit reports where the
+# human report and this policy disagree, not where the human report is "wrong": the
+# policy has no more claim on the truth than the reporter does. See ADR-002.
+#
+# Values are read with the standard library tomllib (Python 3.11+), so there is no YAML
+# dependency and the comments travel with the thresholds.
+
+[schedule]
+# SPI (Schedule Performance Index) = earned value / planned value. 1.0 is on plan.
+# A program a little behind is Amber; well behind is Red. These two numbers are the
+# single most load-bearing choice in the repository, so they are the first thing the
+# sensitivity experiment perturbs (see experiments/exp_threshold_sensitivity.py).
+amber_below_spi = 0.95
+red_below_spi = 0.85
+
+[cost]
+# CPI (Cost Performance Index) = earned value / actual cost. Below 1.0 is over budget.
+# Cost alone never forces Red here: a program can be over budget and still on track to
+# deliver, and treating overspend as a delivery emergency is how cost and schedule get
+# conflated. Cost over the amber line contributes Amber only.
+amber_below_cpi = 0.90
+
+[issues]
+# Open critical issues (blockers) carried into the reporting week.
+amber_at_or_above_criticals = 1
+red_at_or_above_criticals = 3
+
+[milestones]
+# Milestones already past their baseline finish date and not yet complete.
+amber_at_or_above_overdue = 1
+red_at_or_above_overdue = 2
+
+[risks]
+# Open high-severity risks. Risks are softer than issues (a risk has not happened yet),
+# so they can raise Amber but never Red on their own.
+amber_at_or_above_high_risks = 3
+
+[rollup]
+# How a program's own RAG should follow from its workstreams' reported RAGs.
+# "worst_of" means the program is no greener than its reddest workstream. This is the
+# only defensible rule for delivery risk: a program with one red workstream is not green
+# just because the other three are fine. "majority" is offered so the audit can show how
+# many violations vanish under the weaker rule a reporter might prefer (ADR-004).
+rule = "worst_of"
+
+[gate]
+# The CLI exits 1 (not 0) when it finds at least this many optimistic discrepancies at
+# or above `min_severity`. Optimistic means the report was greener than the policy: the
+# dangerous direction. Pessimistic disagreements (the report redder than the policy) are
+# recorded but never block, because sandbagging is not a delivery risk.
+# Severity is the size of the gap: green-vs-amber and amber-vs-red are 1, green-vs-red
+# is 2.
+min_severity = 1
+max_optimistic_allowed = 0

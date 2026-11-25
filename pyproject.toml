@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "status-audit"
+version = "0.1.0"
+description = "Independently recompute program RAG status from objective signals and reconcile it against the self-reported status, so a green report that hides a red program cannot pass unread."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Venkata Pramid Reddy Mitta" }]
+dependencies = [
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.4",
+]
+# Evidence generation is kept out of the default and dev installs on purpose:
+# a reviewer reproduces every number with `make verify` and never needs a browser.
+evidence = [
+    "playwright>=1.40",
+    "cmarkgfm>=2024.0",
+]
+
+[project.scripts]
+status-audit = "status_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+source = ["status_audit"]
+
+[tool.coverage.report]
+show_missing = true
