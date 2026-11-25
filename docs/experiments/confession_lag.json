@@ -1,0 +1,58 @@
+{
+  "programs_never_confessed": 1,
+  "confession_lags": [
+    2,
+    4
+  ],
+  "max_confession_lag": 4,
+  "per_program": [
+    {
+      "program_id": "PRG-ATLAS",
+      "name": "Atlas Core Banking",
+      "objective_onset_week": 18,
+      "reported_onset_week": 18,
+      "lag_weeks": 0,
+      "never_confessed": false
+    },
+    {
+      "program_id": "PRG-BEACON",
+      "name": "Beacon Payments Platform",
+      "objective_onset_week": 10,
+      "reported_onset_week": 14,
+      "lag_weeks": 4,
+      "never_confessed": false
+    },
+    {
+      "program_id": "PRG-CEDAR",
+      "name": "Cedar Lending Modernization",
+      "objective_onset_week": 7,
+      "reported_onset_week": null,
+      "lag_weeks": 0,
+      "never_confessed": true
+    },
+    {
+      "program_id": "PRG-DELTA",
+      "name": "Delta Fraud Analytics",
+      "objective_onset_week": 19,
+      "reported_onset_week": 1,
+      "lag_weeks": 0,
+      "never_confessed": false
+    },
+    {
+      "program_id": "PRG-ECHO",
+      "name": "Echo Mobile Banking",
+      "objective_onset_week": 12,
+      "reported_onset_week": 14,
+      "lag_weeks": 2,
+      "never_confessed": false
+    },
+    {
+      "program_id": "PRG-FORGE",
+      "name": "Forge Regulatory Reporting",
+      "objective_onset_week": null,
+      "reported_onset_week": null,
+      "lag_weeks": 0,
+      "never_confessed": false
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "metrics": {
+    "tests_total": 132,
+    "coverage_line_pct": 100,
+    "programs": 6,
+    "total_reports": 624,
+    "workstream_weeks": 468,
+    "program_weeks": 156,
+    "green_over_trouble": 26,
+    "green_over_red": 16,
+    "optimistic_workstream_weeks": 0,
+    "rollup_violations_worst_of": 48,
+    "rollup_violations_majority": 17,
+    "max_confession_lag": 4,
+    "programs_never_confessed": 1,
+    "headline_robust_floor": 26,
+    "headline_inflated": 63,
+    "pessimistic_program_weeks": 25
+  },
+  "anchors": {
+    "tests_total": [
+      "{} tests"
+    ],
+    "coverage_line_pct": [
+      "{}% line and branch coverage"
+    ],
+    "programs": [
+      "{} programs"
+    ],
+    "total_reports": [
+      "{} reconciled reports"
+    ],
+    "workstream_weeks": [
+      "{} at the workstream level"
+    ],
+    "program_weeks": [
+      "{} at the program level"
+    ],
+    "green_over_trouble": [
+      "{} program-weeks were reported",
+      "{} green-over-trouble"
+    ],
+    "green_over_red": [
+      "{} of them Green over Red",
+      "Green over Red in {}"
+    ],
+    "optimistic_workstream_weeks": [
+      "{} workstream-weeks were optimistic"
+    ],
+    "rollup_violations_worst_of": [
+      "{} rollup integrity violations"
+    ],
+    "rollup_violations_majority": [
+      "{} still contradict"
+    ],
+    "max_confession_lag": [
+      "{}-week confession lag"
+    ],
+    "programs_never_confessed": [
+      "{} program never confessed"
+    ],
+    "headline_robust_floor": [
+      "robust floor of {}"
+    ],
+    "headline_inflated": [
+      "inflates to {}"
+    ],
+    "pessimistic_program_weeks": [
+      "{} pessimistic program-weeks"
+    ]
+  },
+  "checked_documents": [
+    "README.md",
+    "docs/defense-guide.md",
+    "docs/adr/ADR-003-confession-lag-is-signed.md",
+    "docs/adr/ADR-005-synthetic-data-and-the-boundary.md"
+  ],
+  "note": "every value here is produced by running the suite and the experiments"
+}

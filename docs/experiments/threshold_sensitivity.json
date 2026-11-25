@@ -1,0 +1,33 @@
+{
+  "default_amber_below_spi": 0.95,
+  "headline_at_default": 26,
+  "headline_at_strictest": 63,
+  "headline_at_loosest": 26,
+  "grid": [
+    {
+      "amber_below_spi": 0.9,
+      "green_over_trouble_program_weeks": 26,
+      "optimistic_program_weeks": 26
+    },
+    {
+      "amber_below_spi": 0.925,
+      "green_over_trouble_program_weeks": 26,
+      "optimistic_program_weeks": 26
+    },
+    {
+      "amber_below_spi": 0.95,
+      "green_over_trouble_program_weeks": 26,
+      "optimistic_program_weeks": 26
+    },
+    {
+      "amber_below_spi": 0.975,
+      "green_over_trouble_program_weeks": 29,
+      "optimistic_program_weeks": 29
+    },
+    {
+      "amber_below_spi": 1.0,
+      "green_over_trouble_program_weeks": 63,
+      "optimistic_program_weeks": 63
+    }
+  ]
+}

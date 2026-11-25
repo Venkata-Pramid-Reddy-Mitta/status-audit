@@ -1,0 +1,14 @@
+{
+  "workstream_level": {
+    "optimistic": 0,
+    "pessimistic": 22,
+    "consistent": 446
+  },
+  "program_level": {
+    "optimistic": 26,
+    "pessimistic": 25,
+    "consistent": 105
+  },
+  "blocking_optimistic": 26,
+  "pessimistic_never_blocks": true
+}
