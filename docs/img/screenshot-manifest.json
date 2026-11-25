@@ -1,0 +1,12 @@
+{
+  "image": "docs/img/report-headline.png",
+  "framed_by": [
+    "Verdict",
+    "Confession lag"
+  ],
+  "badge": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(179, 38, 30)",
+    "visible": true
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+    html,body{margin:0;background:#0d1117;}
+    #t{font-family:'DejaVu Sans Mono',monospace;font-size:15px;line-height:1.45;
+       color:#d7dde3;padding:18px 22px;white-space:pre-wrap;}
+    .cmd{color:#7ee787;} .prompt{color:#58a6ff;} .exit0{color:#7ee787;} .exit1{color:#e3b341;}
+    </style></head><body><div id="t"></div>
+    <script>
+    const SEGMENTS = [{"command": "python -m status_audit.cli audit", "stdout": "status-audit verdict: FAIL\n  reports reconciled:            624  (468 workstream-weeks, 156 program-weeks)\n  program-weeks Green over trouble: 26  (the signals said Amber/Red, the report said Green)\n  rollup integrity violations:   48\n  programs that never confessed: 1\n  max confession lag (weeks):    4\n\n  per-program confession lag:\n    PRG-ATLAS Atlas Core Banking               no optimistic episode\n    PRG-BEACON Beacon Payments Platform         lag 4w (signals wk 10, report wk 14)\n    PRG-CEDAR Cedar Lending Modernization      NEVER CONFESSED\n    PRG-DELTA Delta Fraud Analytics            no optimistic episode\n    PRG-ECHO Echo Mobile Banking              lag 2w (signals wk 12, report wk 14)\n    PRG-FORGE Forge Regulatory Reporting       no optimistic episode", "exit_code": 1, "duration_s": 0.487}, {"command": "python experiments/exp_confession_lag.py", "stdout": "Confession lag per program\n  program       signals wk  report wk   lag  verdict\n  PRG-ATLAS             18         18     0  on time/conservative\n  PRG-BEACON            10         14     4  4w late\n  PRG-CEDAR              7          -     0  never confessed\n  PRG-DELTA             19          1     0  on time/conservative\n  PRG-ECHO              12         14     2  2w late\n  PRG-FORGE              -          -     0  on time/conservative\n  programs that never confessed: 1\n  longest confession lag: 4 weeks", "exit_code": 0, "duration_s": 0.481}, {"command": "python experiments/exp_threshold_sensitivity.py", "stdout": "Threshold sensitivity: amber SPI line vs headline count\n   amber_spi    green-over-trouble    optimistic\n       0.900                    26            26\n       0.925                    26            26\n       0.950                    26            26\n       0.975                    29            29\n       1.000                    63            63\n  robust floor (loosest line):  26\n  inflated (strictest line):    63", "exit_code": 0, "duration_s": 1.145}, {"command": "python experiments/exp_rollup_rule.py", "stdout": "Rollup integrity violations by rule\n  worst_of (strict):  48\n  majority (lenient): 17\n  fraction surviving the lenient rule: 0.354", "exit_code": 0, "duration_s": 0.657}, {"command": "python tools/check_numbers.py", "stdout": "check_numbers: OK (16 metrics verified across 4 documents)", "exit_code": 0, "duration_s": 0.032}];
+    const term = document.getElementById('t');
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+    async function type(text){
+      const span=document.createElement('span');span.className='cmd';term.appendChild(span);
+      for(const ch of text){span.innerHTML+=esc(ch);await sleep(18);}
+      term.appendChild(document.createTextNode('\n'));
+    }
+    async function run(){
+      await sleep(600);  // dark empty terminal hold, so the GIF loop starts clean
+      for(const seg of SEGMENTS){
+        const p=document.createElement('span');p.className='prompt';p.textContent='$ ';
+        term.appendChild(p);
+        await type(seg.command);
+        const pace=Math.max(250, Math.min(2200, seg.duration_s*1000));
+        await sleep(pace);
+        const out=document.createElement('span');out.innerHTML=esc(seg.stdout)+'\n';
+        term.appendChild(out);
+        const ex=document.createElement('span');
+        ex.className=seg.exit_code===0?'exit0':'exit1';
+        ex.textContent='[exit '+seg.exit_code+']\n\n';
+        term.appendChild(ex);
+        window.scrollTo(0, document.body.scrollHeight);
+        await sleep(700);
+      }
+      document.title='DEMO_DONE';
+    }
+    run();
+    </script></body></html>
