@@ -3,6 +3,7 @@
 **Recomputes a program's RAG status from objective signals and reconciles it against the
 self-reported colour, so a Green report that hides a Red program cannot pass by being read.**
 
+[![ci](https://github.com/Venkata-Pramid-Reddy-Mitta/status-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/Venkata-Pramid-Reddy-Mitta/status-audit/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-132_passing-brightgreen)
 ![coverage](https://img.shields.io/badge/coverage-100%25_line_and_branch-brightgreen)
 ![python](https://img.shields.io/badge/python-3.11_%7C_3.12_%7C_3.13-blue)
