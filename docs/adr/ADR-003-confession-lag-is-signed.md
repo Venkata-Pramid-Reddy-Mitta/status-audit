@@ -4,7 +4,7 @@ Status: accepted
 
 ## Context
 
-A single week's reconciliation answers "is this colour honest". The question a sponsor pays
+A single week's reconciliation answers "is this color honest". The question a sponsor pays
 for is temporal: once the signals turned, how long did the report stay green. That is the
 confession lag, and it needs the whole time series for a program, not one week.
 

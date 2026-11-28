@@ -24,7 +24,7 @@ the decision it encodes, including why cost and risk cap at amber.
   from Python 3.11, supports comments, and keeps the install free of a parser. The boring
   choice is the right one: fewer moving parts in the thing a reviewer must trust.
 - **A default baked into the loader as a fallback.** Rejected explicitly. A silent default
-  would override a misspelled key instead of failing, which is the one behaviour a policy
+  would override a misspelled key instead of failing, which is the one behavior a policy
   loader must never have. The loader raises `PolicyError` naming the missing key instead.
 
 ## Consequences

@@ -6,11 +6,11 @@ Status: accepted
 
 The engine recomputes a RAG from five signals: schedule (SPI), cost (CPI), open critical
 issues, overdue milestones, and open high risks. Each signal maps to its own band (green,
-amber or red). The question is how to combine five bands into one colour.
+amber or red). The question is how to combine five bands into one color.
 
 ## Decision
 
-The combined colour is the worst band any single signal reaches. A program that is on budget,
+The combined color is the worst band any single signal reaches. A program that is on budget,
 on scope and badly behind schedule is Red, not an average of one red and four greens.
 
 ## Alternatives considered
@@ -26,6 +26,6 @@ on scope and badly behind schedule is Red, not an average of one red and four gr
 ## Consequences
 
 The verdict is conservative by construction and the reasons list leads with the band that set
-the colour. A reviewer who disagrees argues about a single threshold in `policy.toml`, not
+the color. A reviewer who disagrees argues about a single threshold in `policy.toml`, not
 about a weighting scheme. Cost and risk are deliberately capped at amber (see ADR-002), so
 worst-wins can still never be driven to red by cost alone.

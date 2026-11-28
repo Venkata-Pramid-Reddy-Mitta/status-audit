@@ -5,14 +5,14 @@ against the code by `tools/check_numbers.py`, so the guide and the tool cannot d
 
 ## The 30 second version
 
-"A weekly RAG status is a human summary, and a summary cannot audit itself: reading the colour
-tells you nothing about whether it is honest. status-audit recomputes the colour independently
+"A weekly RAG status is a human summary, and a summary cannot audit itself: reading the color
+tells you nothing about whether it is honest. status-audit recomputes the color independently
 from the objective signals under a written policy, and reconciles the two across a whole
 portfolio. On a seeded portfolio of 6 programs it found 26 program-weeks reported Green while
 the signals said Amber or Red, and it measures how long each program stayed green after its
 signals turned."
 
-Then stop. The question that usually comes next is "how do you know your recomputed colour is
+Then stop. The question that usually comes next is "how do you know your recomputed color is
 any more correct than theirs". That is the right question, and the answer is the next section.
 
 ## The claims and how each is proved
@@ -52,7 +52,7 @@ any more correct than theirs". That is the right question, and the answer is the
 - The numbers: 132 tests, 100% line and branch coverage, and the number checker fails the build
   if a figure drifts. 624 reconciled reports in total.
 - If pushed ("the data is fake"): yes, and deliberately. The generator models reporting
-  behaviour (honest, watermelon, sandbagger, rollup-liar), which a live feed would not label. A
+  behavior (honest, watermelon, sandbagger, rollup-liar), which a live feed would not label. A
   live tracker would change realism, not the method, and would cost reproducibility (ADR-005).
 
 ## Questions that are meant to be hard
@@ -65,7 +65,7 @@ prices the thresholds. A wrapper asserts a number; this prices its own biggest a
 
 **"The corpus is synthetic. Does any of this transfer?"** The method transfers exactly; the
 numbers are of the fixture. The reconciliation, the confession lag and the rollup check all run
-on a real export unchanged, because they only need a reported colour and the signals. What would
+on a real export unchanged, because they only need a reported color and the signals. What would
 not transfer is the specific count of 26, which is a fact about this seeded portfolio.
 
 **"What is the weakest part?"** Confession lag scores the first deterioration episode only. A
@@ -77,13 +77,13 @@ weight. It is the Pivot, with its trigger written in the README.
 **"What would you do differently with more time?"** A per-stakeholder view, because the same
 program can read Green to finance and Amber to engineering, and reconciling those is a richer
 version of the same idea. And a calibration step that fits the policy thresholds to an
-organisation's own closed-project history instead of asserting them, which would turn the
+organization's own closed-project history instead of asserting them, which would turn the
 sensitivity sweep from a caveat into a feature.
 
 **"Why worst-wins instead of a weighted model?"** Because averaging launders the exact optimism
 the tool exists to catch: four green signals and one red SPI average to amber. ADR-001.
 
-**"Could a team game this?"** Yes, by making the signals lie too, not just the colour. The tool
+**"Could a team game this?"** Yes, by making the signals lie too, not just the color. The tool
 audits the report against the signals; it cannot audit the signals against reality. That is the
 honest boundary, and it is why the output is "disagreement", not "truth".
 

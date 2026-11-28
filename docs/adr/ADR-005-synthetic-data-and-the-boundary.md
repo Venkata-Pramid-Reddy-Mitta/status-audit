@@ -28,7 +28,7 @@ inflates to 63, most of it marginal. The tool publishes the floor, not the infla
 - **Connect to a live tracker.** Out of scope by policy (convention: offline and deterministic
   by default). A live connector would make the demo realistic and the numbers irreproducible,
   which is the wrong trade for a portfolio whose entire claim is that its numbers are checkable.
-  The generator models reporting *behaviour* (honest, watermelon, sandbagger, rollup-liar),
+  The generator models reporting *behavior* (honest, watermelon, sandbagger, rollup-liar),
   which is the part a live feed would not label anyway.
 - **Claim the audit detects real trouble.** Rejected as overclaiming. The defensible claim is
   narrower and stronger: the audit detects inconsistency between a self-report and an
@@ -37,5 +37,5 @@ inflates to 63, most of it marginal. The tool publishes the floor, not the infla
 ## What is therefore out of reach
 
 Whether any flagged program was genuinely failing. Whether the policy thresholds match a given
-organisation's risk appetite. Both are judgement calls the tool surfaces rather than settles.
+organization's risk appetite. Both are judgement calls the tool surfaces rather than settles.
 These are the subject of the README's "What this cannot measure" section.

@@ -2,7 +2,7 @@
 
 A four-persona adversarial audit of this repository, run before delivery. Grades are PASS,
 WEAK or FAIL. The mechanical pre-flight and all four personas were run against the built
-artefact, not the intent.
+artifact, not the intent.
 
 ## Mechanical pre-flight
 
@@ -28,7 +28,7 @@ artefact, not the intent.
 2. Break the checker: PASS. Changing one README figure fails the build (demonstrated).
 3. Honest zeros: PASS. The one zero (0 optimistic workstream-weeks) is an exact census of a
    deterministic corpus, scoped to this portfolio, not a sampled rate presented as general.
-4. Machine independence: PASS. No absolute duration is a headline; the demo pacing is labelled.
+4. Machine independence: PASS. No absolute duration is a headline; the demo pacing is labeled.
 5. The unflattering number: PASS. The first screen carries the robust floor and the inflated 63.
 6. The boundary: PASS. A dedicated section and ADR-005 state what cannot be established.
 
@@ -53,11 +53,11 @@ Overall score: 9 / 10. No critical failures. The repository is job-ready.
 
 Impact multipliers considered for a 9 to 10 move: a per-stakeholder reconciliation (the same
 program read Green to finance and Amber to engineering); a calibration step that fits the policy
-thresholds to an organisation's own closed-project history; and multi-episode confession
+thresholds to an organization's own closed-project history; and multi-episode confession
 tracking. All three are recorded as future work.
 
 Elevator pitch: A weekly RAG status is a human summary, and a summary cannot audit itself, so
-status-audit recomputes the colour independently from the objective signals and reconciles the
+status-audit recomputes the color independently from the objective signals and reconciles the
 two across a whole portfolio. On seeded data it found 26 program-weeks reported Green while the
 signals said Amber or Red, measured how many weeks each program stayed green after its signals
 turned, and priced its own biggest assumption by showing the headline has a robust floor of 26

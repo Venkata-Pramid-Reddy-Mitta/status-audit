@@ -6,14 +6,14 @@ Status: accepted
 
 There are two different roll-ups in this tool, and conflating them would be a real bug.
 
-1. **The objective program colour**: given the computed colours of a program's workstreams,
-   what colour are the signals saying the program is.
-2. **The rollup integrity check**: given the colours a program's workstreams *reported* for
-   themselves, is the program's *reported* colour even internally consistent.
+1. **The objective program color**: given the computed colors of a program's workstreams,
+   what color are the signals saying the program is.
+2. **The rollup integrity check**: given the colors a program's workstreams *reported* for
+   themselves, is the program's *reported* color even internally consistent.
 
 ## Decision
 
-The objective program colour is always the worst of its workstreams' computed colours, with no
+The objective program color is always the worst of its workstreams' computed colors, with no
 configuration. "What do the signals say this program is" has one honest answer: as red as its
 reddest part.
 
@@ -22,7 +22,7 @@ The rollup integrity rule is configurable (`rollup.rule`), defaulting to `worst_
 
 ## Alternatives considered
 
-- **One configurable rule for both.** Rejected. Making the objective colour configurable would
+- **One configurable rule for both.** Rejected. Making the objective color configurable would
   let a lenient rule hide a red workstream from the signal reconciliation, which is the exact
   evasion the tool is built to expose. The objective answer must not have a lever.
 - **Only ever `worst_of` for integrity too.** Rejected because offering `majority` is what lets
